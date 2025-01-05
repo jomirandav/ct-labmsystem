@@ -11,8 +11,8 @@ app.use(express.json());
 app.get('/sets', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM set');
-        res.status(200).send(result.rows);
-        // res.json(result.rows);
+        res.status(200).json(result.rows);
+        // TO-DO add 404
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Server error');
@@ -23,11 +23,11 @@ app.get('/sets', async (req, res) => {
 app.get('/sets/:id/cards', async (req, res) => {
     try {
         const set_id = [req.params.id];
-        const result = await pool.query('SELECT * FROM card INNER JOIN set ON card.set_id = set.id WHERE set.id = $1 limit 4', set_id);
+        const result = await pool.query('SELECT * FROM card WHERE set_id = $1 limit 10', set_id);
         if (result.rows.length === 0) {
             res.status(404).send('Set id not found');
         } else {
-            res.status(200).send(result.rows);
+            res.status(200).json(result.rows);
         }
     } catch (error) {
         console.error('Error:', error);

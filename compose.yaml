@@ -1,0 +1,27 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pk-postgres02
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: pk_database
+    ports:
+      - "5432:5432"
+
+    # volumes:
+     # - pgdata:/var/lib/postgresql/data 
+
+  # volumes:
+    #   pgdata:
+
+
+
+
+
+
+
+
+

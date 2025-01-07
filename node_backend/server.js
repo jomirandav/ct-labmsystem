@@ -1,11 +1,12 @@
 import express from "express";
 import pool from "./db.js";
+import cors from "cors";
+
 const port = 1337
-
 const app = express();
-app.use(express.json());
 
-// Implementa los siguientes endpoints:
+app.use(express.json());
+app.use(cors());
 
 // GET /sets: Lista todos los sets.
 app.get('/sets', async (req, res) => {
@@ -37,7 +38,6 @@ app.get('/sets/:id/cards', async (req, res) => {
 
 
 // (Opcional) GET /cards/:id: Devuelve información detallada de una carta.
-
 
 
 //start server 

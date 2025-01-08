@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import Header from '@/components/Header';
 
 export default function Sets() {
 
@@ -21,16 +22,12 @@ export default function Sets() {
 
     return (
         <>
-            {/* move to header component */}
-            <div className='flex justify-center'>
-                <h1 className="text-slate-700 text-3xl font-bold my-6">
-                    Pokemon TCG
-                </h1>
+            <Header />
+            <div className='rounded-md bg-sky-700 flex flex-col w-2/4 justify-self-center p-4 mb-4'>
+                <h2 className='text-lg'>Sets from the series "Scarlet & Violet"</h2>
             </div>
-            <div className='rounded-md bg-sky-700 flex flex-col w-3/4 justify-self-center p-4 mb-4'>
-                <h2 className='text-xl'>Sets</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere dignissimos minima quas dolorum a eaque, necessitatibus voluptate esse.</p>
-            </div>
+
+
             <div className='max-w-[1024px] mx-auto flex'>
                 <div className='flex flex-wrap justify-center'>
                     {

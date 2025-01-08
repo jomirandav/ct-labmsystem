@@ -1,6 +1,7 @@
 'use client'
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import Header from '@/components/Header';
 
 export default function page() {
     const params = useParams()
@@ -19,11 +20,7 @@ export default function page() {
 
     return (
         <>
-            <div className='flex justify-center'>
-                <h1 className="text-sky-400 text-3xl font-bold my-6">
-                    Pokemon TCG
-                </h1>
-            </div>
+            <Header />
             <div className='bg-sky-700 flex flex-col w-3/4 justify-self-center p-4 mb-14'>
                 <h2 className='text-xl'>Card</h2>
                 <p>INFO DE LA CARD Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere dignissimos minima quas dolorum a eaque, necessitatibus voluptate esse.</p>

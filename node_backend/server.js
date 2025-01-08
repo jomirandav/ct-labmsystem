@@ -24,7 +24,8 @@ app.get('/sets', async (req, res) => {
 app.get('/sets/:id/cards', async (req, res) => {
     try {
         const set_id = [req.params.id];
-        const result = await pool.query('SELECT * FROM card WHERE set_id = $1 limit 10', set_id);
+        // const result = await pool.query('SELECT * FROM card WHERE set_id = $1 limit 10', set_id);
+        const result = await pool.query(`SELECT * FROM card INNER JOIN image ON card.id = image.card_id WHERE card.set_id =$1 and image.type='small' limit 10`, set_id);
         if (result.rows.length === 0) {
             res.status(404).send('Set id not found');
         } else {
@@ -38,11 +39,11 @@ app.get('/sets/:id/cards', async (req, res) => {
 
 
 // (Opcional) GET /cards/:id: Devuelve información detallada de una carta.
-app.get('/sets/:id/cards/:id', async (req, res) => {
+app.get('/cards/:id', async (req, res) => {
     try {
         const card_id = [req.params.id];
         // image data duplicated
-        const result = await pool.query('SELECT * FROM card INNER JOIN image ON card.id = image.card_id WHERE card.id = $1 limit 10', card_id);
+        const result = await pool.query(`SELECT * FROM card INNER JOIN image ON card.id = image.card_id WHERE card.id = $1 limit 10`, card_id);
         if (result.rows.length === 0) {
             res.status(404).send('Card id not found');
         } else {

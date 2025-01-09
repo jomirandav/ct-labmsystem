@@ -17,18 +17,15 @@ Para levantar el proyecto es necesario contar con una instalación de Docker y D
  
 Para acceder al aplicativo se debe ejecutar el siguiente comando en consola para que docker compose genere los contenedores necesarios para la base de datos y el backend:
 
- ```docker compose up --build```
+ 	docker compose up --build
+ 
+- Para solo iniciar los contenedores previamente creados se ejecuta el comando sin el flag de build.
 
 Cuando se cuente con los contenedores creados e iniciados, se procede a ejecutar el comando para levantar el frontend:
 
- ```npm run front```
-
-- Para solo iniciar los contenedores previamente creados se ejecuta el comando sin el flag de build:
-
- ```docker compose up```
-
+ 	npm run front
  
- Se accede al aplicativo en 
+ Y se accede al aplicativo en: 
 
  	https://localhost:3000/
  
@@ -47,7 +44,7 @@ Cuando se cuente con los contenedores creados e iniciados, se procede a ejecutar
 - Express / Node.js
 	- Libreria pg para conectar con PostgreSQL.
 	- Paquete cors para conectar backend y frontend en dominios separados.
-	- 
+
 **Frontend**
 
 - Next.js / React
@@ -72,3 +69,6 @@ En honor al tiempo, quedan pendientes las siguientes mejoras:
 - Variables de entorno gestionadas con módulo dotenv, se dejó fuera para facilitar el uso del script de shell.
 - Limpieza y refactor de código.
 - Despliegue del aplicativo a través de Vercel.
+
+
+**Gracias!**

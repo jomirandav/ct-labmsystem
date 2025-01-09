@@ -15,7 +15,6 @@ export default function Sets() {
             )
             .then(
                 data => {
-                    console.log(data)
                     setSets([...data])
                 }
             )
@@ -24,7 +23,7 @@ export default function Sets() {
     return (
         <>
             <Header />
-            <div className='bg-sky-700 flex flex-col w-2/4 justify-self-center p-4 my-4 bg-opacity-30 rounded-md '>
+            <div className='bg-sky-700 flex flex-col w-2/4 justify-self-center text-center p-4 my-4 bg-opacity-30 rounded-md '>
                 <h2 className='text-lg'>Sets from the series "Scarlet & Violet"</h2>
             </div>
 
@@ -35,7 +34,7 @@ export default function Sets() {
                         sets?.map((set, index) => (
                             <div className='set-box text-slate-950 bg-transparent hover:shadow-2xl hover:cursor-pointer size-44 m-6 p-2 rounded-md border-2 border-amber-400 content-center' key={index}>
                                 <a href={`${url}${set.id}`}>
-                                    <img src={set.logo_url} className='hover:scale-125'></img>
+                                    <img src={set.logo_url} className='hover:scale-125 ease-out duration-300'></img>
                                 </a>
                                 <ul className='hidden'>
                                     <li>
